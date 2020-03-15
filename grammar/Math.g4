@@ -47,6 +47,6 @@ Number
     :   [0-9]+ ('.' [0-9]+)?
     ;
 
-Whiteosace
+Whitespace
     :   [ \t\r\n] -> channel(HIDDEN)
     ;
