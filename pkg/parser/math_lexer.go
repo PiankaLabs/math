@@ -70,12 +70,12 @@ var lexerLiteralNames = []string{
 
 var lexerSymbolicNames = []string{
 	"", "", "", "Operator_Add", "Operator_Subtract", "Operator_Multiply", "Operator_Divide",
-	"Number", "Whiteosace",
+	"Number", "Whitespace",
 }
 
 var lexerRuleNames = []string{
 	"T__0", "T__1", "Operator_Add", "Operator_Subtract", "Operator_Multiply",
-	"Operator_Divide", "Number", "Whiteosace",
+	"Operator_Divide", "Number", "Whitespace",
 }
 
 type MathLexer struct {
@@ -120,5 +120,5 @@ const (
 	MathLexerOperator_Multiply = 5
 	MathLexerOperator_Divide   = 6
 	MathLexerNumber            = 7
-	MathLexerWhiteosace        = 8
+	MathLexerWhitespace        = 8
 )

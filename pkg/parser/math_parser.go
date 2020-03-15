@@ -55,7 +55,7 @@ var literalNames = []string{
 }
 var symbolicNames = []string{
 	"", "", "", "Operator_Add", "Operator_Subtract", "Operator_Multiply", "Operator_Divide",
-	"Number", "Whiteosace",
+	"Number", "Whitespace",
 }
 
 var ruleNames = []string{
@@ -97,7 +97,7 @@ const (
 	MathParserOperator_Multiply = 5
 	MathParserOperator_Divide   = 6
 	MathParserNumber            = 7
-	MathParserWhiteosace        = 8
+	MathParserWhitespace        = 8
 )
 
 // MathParser rules.
