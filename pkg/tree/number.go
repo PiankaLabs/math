@@ -14,20 +14,20 @@
  *   limitations under the License.
  */
 
-// Represents a mathematical expression tree.
+// Package tree represents a mathematical expression tree.
 package tree
 
-// A leaf math node comprising a single number.
+// A number node in a mathematical expression tree comprising a single number.
 type Number struct {
 	Value float64
 }
 
-// Returns just the number's value.
+// Calculate returns just the number's value.
 func (number Number) Calculate() float64 {
 	return number.Value
 }
 
-// Returns nil.
+// Children returns nil.
 func (number Number) Children() []Node {
 	return nil
 }

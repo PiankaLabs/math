@@ -16,7 +16,7 @@
 
 // based on https://blog.gopheracademy.com/advent-2017/parsing-with-antlr4-and-go/
 
-// Turns a mathematical expression into a tree.
+// Package evaluator turns a mathematical expression into a tree.
 package evaluator
 
 import (
@@ -29,7 +29,7 @@ import (
 	"piankalabs.com/math/pkg/tree"
 )
 
-// For handling tokens when walking a parse tree.
+// Listener for handling tokens when walking a parse tree.
 type Listener struct {
 	*parser.BaseMathListener
 
@@ -38,17 +38,17 @@ type Listener struct {
 	stack *stack.Stack
 }
 
-// Initializes the listener.
+// EnterExpression initializes the listener.
 func (listener *Listener) EnterExpression(c *parser.ExpressionContext) {
 	listener.stack = new(stack.Stack)
 }
 
-// Expression parse tree has been fully walked.
+// ExitExpression is invoked when the parse tree has been fully walked.
 func (listener *Listener) ExitExpression(c *parser.ExpressionContext) {
 	listener.Tree = listener.stack.Pop().(tree.Node)
 }
 
-// A unary statement has been walked.
+// ExitUnaryStatement is invoked when a unary statement has been walked.
 func (listener *Listener) ExitUnaryStatement(c *parser.UnaryStatementContext) {
 	operator := c.Unary().GetOperator().GetText()
 	if operator == "-" {
@@ -69,7 +69,7 @@ func (listener *Listener) ExitUnaryStatement(c *parser.UnaryStatementContext) {
 	}
 }
 
-// A number statement has been walked.
+// ExitNumberStatement is invoked when a number statement has been walked.
 func (listener *Listener) ExitNumberStatement(c *parser.NumberStatementContext) {
 	value, err := strconv.ParseFloat(c.Number().GetText(), 64)
 	if err != nil {
@@ -83,7 +83,7 @@ func (listener *Listener) ExitNumberStatement(c *parser.NumberStatementContext) 
 	listener.stack.Push(node)
 }
 
-// An infix statement has been walked.
+// ExitInfixStatement is invoked when an infix statement has been walked.
 func (listener *Listener) ExitInfixStatement(c *parser.InfixStatementContext) {
 	operator := c.GetOperator().GetText()
 	right := listener.stack.Pop()

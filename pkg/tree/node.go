@@ -14,10 +14,10 @@
  *   limitations under the License.
  */
 
-// Represents a mathematical expression tree.
+// Package tree represents a mathematical expression tree.
 package tree
 
-// A math node.
+// A node in a mathematical expression tree.
 type Node interface {
 	Calculate() float64
 	Children() []Node

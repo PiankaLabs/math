@@ -14,10 +14,10 @@
  *   limitations under the License.
  */
 
-// Represents a mathematical expression tree.
+// Package tree represents a mathematical expression tree.
 package tree
 
-// An operator node comprising a mathematical operation and the nodes it operates on.
+// An operator node in a mathematical expression tree comprising a mathematical operation and the nodes it operates on.
 type Operator struct {
 	Operator string
 
@@ -25,7 +25,7 @@ type Operator struct {
 	Right Node
 }
 
-// Computes the mathematical operation.
+// Calculate computes the mathematical operation.
 func (operator Operator) Calculate() float64 {
 	left := operator.Left.Calculate()
 	right := operator.Right.Calculate()
@@ -44,7 +44,7 @@ func (operator Operator) Calculate() float64 {
 	panic("Unknown operator: " + operator.Operator)
 }
 
-// Returns the left and right nodes.
+// Children returns the left and right nodes.
 func (operator Operator) Children() []Node {
 	return []Node{
 		operator.Left,

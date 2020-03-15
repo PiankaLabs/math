@@ -14,7 +14,7 @@
  *   limitations under the License.
  */
 
-// Turns a mathematical expression into a tree.
+// Package evaluator turns a mathematical expression into a tree.
 package evaluator
 
 import (
@@ -24,11 +24,11 @@ import (
 	"piankalabs.com/math/pkg/tree"
 )
 
-// For evaluating expressions.
+// Evaluator evaluates mathematical expressions.
 type Evaluator struct {
 }
 
-// Parses an expression and turns it into a tree.Node.
+// Evaluate parses an expression and turns it into a tree.Node.
 func (evaluator Evaluator) Evaluate(expression string) (tree.Node, error) {
 	is := antlr.NewInputStream(expression)
 
