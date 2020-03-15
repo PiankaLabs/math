@@ -31,6 +31,8 @@ Below are some examples of supported mathematical expressions:
 
 `2 * -8` outputs `-16`
 
+`0.5 + 1` outputs `1.5`
+
 `10 * (1 / 2)` outputs `5`
 
 `((1 + 2) - 3) - (4 - 5)` outputs `1`
