@@ -17,7 +17,7 @@
 // Package tree represents a mathematical expression tree.
 package tree
 
-// A number node in a mathematical expression tree comprising a single number.
+// A Number node in a mathematical expression tree comprising a single number.
 type Number struct {
 	Value float64
 }

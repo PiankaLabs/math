@@ -17,7 +17,7 @@
 // Package tree represents a mathematical expression tree.
 package tree
 
-// A node in a mathematical expression tree.
+// A Node in a mathematical expression tree.
 type Node interface {
 	Calculate() float64
 	Children() []Node
