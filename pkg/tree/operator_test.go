@@ -28,8 +28,8 @@ import (
 func operator(left float64, operator string, right float64) Operator {
 	return Operator{
 		Operator: operator,
-		Left: number(left),
-		Right: number(right),
+		Left:     number(left),
+		Right:    number(right),
 	}
 }
 
@@ -41,16 +41,16 @@ func number(value float64) Number {
 
 func TestOperatorCalculate(t *testing.T) {
 	add := operator(4, "+", 4).Calculate()
-	assert.Equal(t, 8.0, add,"Operator.Calculate() should correctly add values")
+	assert.Equal(t, 8.0, add, "Operator.Calculate() should correctly add values")
 
 	subtract := operator(4, "-", 4).Calculate()
-	assert.Equal(t, 0.0, subtract,"Operator.Calculate() should correctly subtract values")
+	assert.Equal(t, 0.0, subtract, "Operator.Calculate() should correctly subtract values")
 
 	multiply := operator(4, "*", 4).Calculate()
-	assert.Equal(t, 16.0, multiply,"Operator.Calculate() should correctly multiply values")
+	assert.Equal(t, 16.0, multiply, "Operator.Calculate() should correctly multiply values")
 
 	divide := operator(4, "/", 4).Calculate()
-	assert.Equal(t, 1.0, divide,"Operator.Calculate() should correctly divide values")
+	assert.Equal(t, 1.0, divide, "Operator.Calculate() should correctly divide values")
 }
 
 func TestOperatorChildren(t *testing.T) {

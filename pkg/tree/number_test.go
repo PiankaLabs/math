@@ -34,7 +34,7 @@ func node() Number {
 func TestNumberCalculate(t *testing.T) {
 	result := node().Calculate()
 
-	assert.Equal(t, 4.0, result,"Number.Calculate() should return its numerical value")
+	assert.Equal(t, 4.0, result, "Number.Calculate() should return its numerical value")
 }
 
 func TestNumberChildren(t *testing.T) {
