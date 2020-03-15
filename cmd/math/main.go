@@ -32,7 +32,7 @@ import (
 
 func main() {
 	app := &cli.App{
-		Name: "math",
+		Name:  "math",
 		Usage: "Evaluate a mathematical expression",
 		Action: func(c *cli.Context) error {
 			if c.Args().Len() > 0 {

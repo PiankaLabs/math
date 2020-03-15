@@ -26,7 +26,6 @@ import (
 
 // For evaluating expressions.
 type Evaluator struct {
-
 }
 
 // Parses an expression and turns it into a tree.Node.

@@ -21,7 +21,7 @@ package tree
 type Operator struct {
 	Operator string
 
-	Left Node
+	Left  Node
 	Right Node
 }
 
@@ -46,7 +46,7 @@ func (operator Operator) Calculate() float64 {
 
 // Returns the left and right nodes.
 func (operator Operator) Children() []Node {
-	return []Node {
+	return []Node{
 		operator.Left,
 		operator.Right,
 	}

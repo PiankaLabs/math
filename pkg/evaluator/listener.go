@@ -52,17 +52,17 @@ func (listener *Listener) ExitExpression(c *parser.ExpressionContext) {
 func (listener *Listener) ExitUnaryStatement(c *parser.UnaryStatementContext) {
 	operator := c.Unary().GetOperator().GetText()
 	if operator == "-" {
-		var negativeOne tree.Node = tree.Number {
+		var negativeOne tree.Node = tree.Number{
 			Value: -1,
 		}
 
 		left := negativeOne
 		right := listener.stack.Pop()
 
-		var node tree.Node = tree.Operator {
+		var node tree.Node = tree.Operator{
 			Operator: "*",
-			Left: left,
-			Right: right.(tree.Node),
+			Left:     left,
+			Right:    right.(tree.Node),
 		}
 
 		listener.stack.Push(node)
@@ -76,7 +76,7 @@ func (listener *Listener) ExitNumberStatement(c *parser.NumberStatementContext) 
 		log.Fatal(err)
 	}
 
-	var node tree.Node = tree.Number {
+	var node tree.Node = tree.Number{
 		Value: value,
 	}
 
@@ -89,10 +89,10 @@ func (listener *Listener) ExitInfixStatement(c *parser.InfixStatementContext) {
 	right := listener.stack.Pop()
 	left := listener.stack.Pop()
 
-	var node tree.Node = tree.Operator {
+	var node tree.Node = tree.Operator{
 		Operator: operator,
-		Left: left.(tree.Node),
-		Right: right.(tree.Node),
+		Left:     left.(tree.Node),
+		Right:    right.(tree.Node),
 	}
 
 	listener.stack.Push(node)
