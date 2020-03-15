@@ -1,0 +1,14 @@
+T__0=1
+T__1=2
+Operator_Add=3
+Operator_Subtract=4
+Operator_Multiply=5
+Operator_Divide=6
+Number=7
+Whiteosace=8
+'('=1
+')'=2
+'+'=3
+'-'=4
+'*'=5
+'/'=6

@@ -1,0 +1,1 @@
+GOBIN=/usr/local/bin/ go install piankalabs.com/math/cmd/math

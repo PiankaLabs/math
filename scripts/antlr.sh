@@ -1,0 +1,1 @@
+java -jar lib/antlr-4.8-complete.jar -Dlanguage=Go -Xexact-output-dir -package parser -o pkg/parser grammar/Math.g4
