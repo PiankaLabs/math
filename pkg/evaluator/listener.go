@@ -20,7 +20,6 @@
 package evaluator
 
 import (
-	"log"
 	"strconv"
 
 	"github.com/golang-collections/collections/stack"
@@ -39,12 +38,12 @@ type Listener struct {
 }
 
 // EnterExpression initializes the listener.
-func (listener *Listener) EnterExpression(c *parser.ExpressionContext) {
+func (listener *Listener) EnterExpression(_ *parser.ExpressionContext) {
 	listener.stack = new(stack.Stack)
 }
 
 // ExitExpression is invoked when the parse tree has been fully walked.
-func (listener *Listener) ExitExpression(c *parser.ExpressionContext) {
+func (listener *Listener) ExitExpression(_ *parser.ExpressionContext) {
 	listener.Tree = listener.stack.Pop().(tree.Node)
 }
 
@@ -71,10 +70,7 @@ func (listener *Listener) ExitUnaryStatement(c *parser.UnaryStatementContext) {
 
 // ExitNumberStatement is invoked when a number statement has been walked.
 func (listener *Listener) ExitNumberStatement(c *parser.NumberStatementContext) {
-	value, err := strconv.ParseFloat(c.Number().GetText(), 64)
-	if err != nil {
-		log.Fatal(err)
-	}
+	value, _ := strconv.ParseFloat(c.Number().GetText(), 64)
 
 	var node tree.Node = tree.Number{
 		Value: value,

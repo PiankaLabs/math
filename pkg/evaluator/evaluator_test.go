@@ -21,12 +21,12 @@ import (
 	"testing"
 
 	// Third Party
-	asserter "github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/assert"
 )
 
-func TestParser(t *testing.T) {
+func test(t *testing.T, expression string, expected float64, message string) {
 	eval := new(Evaluator)
-	tree, err := eval.Evaluate("2 + 2")
+	tree, err := eval.Evaluate(expression)
 
 	if err != nil {
 		t.Log(err)
@@ -34,6 +34,33 @@ func TestParser(t *testing.T) {
 
 	result := tree.Calculate()
 
-	assert := asserter.New(t)
-	assert.Equal(result, 4.0, "2 + 2 should equal 4")
+	assert.Equal(t, expected, result, message)
+}
+
+func TestNumber(t *testing.T) {
+	test(t, "4", 4, "4 should equal 4")
+}
+
+func TestUnary(t *testing.T) {
+	test(t, "-4", -4, "-4 should equal -4")
+}
+
+func TestInfixAdd(t *testing.T) {
+	test(t, "4 + 4", 8, "4 + 4 should equal 8")
+}
+
+func TestInfixSubtract(t *testing.T) {
+	test(t, "4 - 4", 0, "4 - 4 should equal 0")
+}
+
+func TestInfixMultiply(t *testing.T) {
+	test(t, "4 * 4", 16, "4 * 4 should equal 16")
+}
+
+func TestInfixDivide(t *testing.T) {
+	test(t, "4 / 4", 1, "4 / 4 should equal 1")
+}
+
+func TestParenthetical(t *testing.T) {
+	test(t, "4 / (4 * 4)", 0.25, "4 / (4 * 4) should equal 0.25")
 }
