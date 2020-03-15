@@ -15,4 +15,4 @@
 #   limitations under the License.
 
 go clean -testcache
-go test piankalabs.com/math/test/unit/... -v
+go test -race -coverprofile=coverage.txt -covermode=atomic -v ./...

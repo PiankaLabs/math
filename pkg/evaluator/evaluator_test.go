@@ -22,13 +22,10 @@ import (
 
 	// Third Party
 	asserter "github.com/stretchr/testify/assert"
-
-	// Internal
-	"piankalabs.com/math/pkg/evaluator"
 )
 
 func TestParser(t *testing.T) {
-	eval := new(evaluator.Evaluator)
+	eval := new(Evaluator)
 	tree, err := eval.Evaluate("2 + 2")
 
 	if err != nil {

@@ -1,0 +1,18 @@
+language: go
+
+go:
+  - 1.14.x
+
+before_install:
+  - go get -t -v ./...
+
+script:
+  - /scripts/build.sh
+  - /scripts/test.sh
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+env:
+  global:
+    secure: niKVMcVGPPzU+cNN4JtoC7aKgCcebZGXcJmCjAsmXp4apgEzotYvx1EikO8YZmf1IhSCXV+Gw8CpRMUOamCR4de3L1QtHzd9qx1z5Kig9AL41KXHncmZzPe0HIsDUpq5futL+JGoNl28KE7Y9WSImOm7DBYFOPmx9269QHgXwLV4FffH6INuUWevn9680bMGSAldMxW1jM45vPnHu1Jg0WB3/V1jUWsvS5KrSTbpMjQdghNIMNNjzT0jZoMpBTMMp44r229fTX3/0RNvjR8D+rQ86jqQG+0m/wf1YYdHS80wqrhzHNEqdTiGUAkip3Y4K0A2klM9Zle8uIcb67/8zh7L/76xvtH6861gGTJW0MXDCBXOlAEptRu6NStWLzxshfoqgA+Tu3ukCQSooTH0OD5qsD7zZj4kmJ7oF+jfgkMADb3SGlnZZbbdiqBPLnhu75vgBVx/Ug/wl8ikm7hSKQb2oHqs+5ifjxCvRHvAL2TN95dAUfS2kkwGTFMCSSB5t/kVjHGhpGEtu9MZsEf7mYPqrFrZcEXNBn20QGKzx7BzZCgQMQ7iUmS27GJQU/UHfVdB6+WGWLLclgl70zbbg8hBT3fgmpEfaTbHBtGptFPRNmQ275QoD5qEl6Wz/HuQ6ehQBt4CIxqGrq95Qyz+XLTNX4LPAWl6qEj4zJwkgn4=
